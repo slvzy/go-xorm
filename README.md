@@ -1,4 +1,4 @@
 # go-xorm
-go-xorm补充了from tag
+对go-xorm补充了from tag
 
-[说明](https://github.com/bobac-small/go-xorm/blob/master/cmd/README_CN.md)
+[教程说明](https://github.com/bobac-small/go-xorm/blob/master/cmd/README_CN.md)
