@@ -105,14 +105,14 @@ List all supported drivers since default build will not include sqlite3.
  
 样例：
 
-    type xx struct {
-        Id          int64  `json:"Id" from:"Id" xorm:"pk autoincr comment('编号') BIGINT(20)"`
-        Name        string `json:"Name" from:"Name" xorm:"VARCHAR(255)"`
-        Key         string `json:"Key" from:"Key" xorm:"VARCHAR(255)"`
-        MerhantNo   int    `json:"MerhantNo" from:"MerhantNo" xorm:"INT(255)"`
-        Password    string `json:"Password" from:"Password" xorm:"VARCHAR(255)"`
-        CallBackUrl string `json:"CallBackUrl" from:"CallBackUrl" xorm:"VARCHAR(255)"`
-        RequestUrl  string `json:"RequestUrl" from:"RequestUrl" xorm:"VARCHAR(255)"`
+    type xxx struct {
+    	Id          int64  `json:"id" from:"id" xorm:"pk autoincr comment('编号') BIGINT(20)"`
+    	Name        string `json:"name" from:"name" xorm:"VARCHAR(255)"`
+    	Key         string `json:"key" from:"key" xorm:"VARCHAR(255)"`
+    	MerhantNo   int    `json:"merhantNo" from:"merhantNo" xorm:"INT(255)"`
+    	Password    string `json:"password" from:"password" xorm:"VARCHAR(255)"`
+    	CallBackUrl string `json:"callBackUrl" from:"callBackUrl" xorm:"VARCHAR(255)"`
+    	RequestUrl  string `json:"requestUrl" from:"requestUrl" xorm:"VARCHAR(255)"`
     }
     
 为大家省去编译tag json 和from的时间
