@@ -1,5 +1,5 @@
 
-[中文](https://github.com/go-xorm/cmd/blob/master/README_CN.md)
+[中文](https://github.com/bobac-small/cmd/blob/master/README_CN.md)
 
 # xorm tools
 
@@ -7,7 +7,7 @@ xorm tools is a set of  tools for database operation.
 
 ## Source Install
 
-`go get github.com/go-xorm/cmd/xorm`
+`go get github.com/bobac-small/cmd/xorm`
 
 and you should install the depends below:
 
@@ -45,7 +45,7 @@ to get help
 
 example:
 
-`cd $GOPATH/src/github.com/go-xorm/cmd/xorm`
+`cd $GOPATH/src/github.com/bobac-small/cmd/xorm`
 
 sqlite:
 `xorm reverse sqite3 test.db templates/goxorm`
@@ -71,10 +71,12 @@ Now, xorm tool supports go and c++ two languages and have go, goxorm, c++ three 
 ```
 lang=go
 genJson=1
+genFrom=1
 ```
 
 lang must be go or c++ now.
 genJson can be 1 or 0, if 1 then the struct will have json tag.
+genFrom can be 1 or 0, if 1 then the struct will have from tag.
 
 ## Shell
 

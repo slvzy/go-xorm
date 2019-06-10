@@ -1,5 +1,5 @@
 
-[English](https://github.com/go-xorm/cmd/blob/master/README.md)
+[English](https://github.com/bobac-small/cmd/blob/master/README.md)
 
 # xorm 工具
 
@@ -7,7 +7,7 @@ xorm 是一组数据库操作命令行工具。
 
 ## 源码安装
 
-`go get github.com/go-xorm/cmd/xorm`
+`go get github.com/bobac-small/cmd/xorm`
 
 同时你需要安装如下依赖:
 
@@ -47,7 +47,7 @@ Reverse 命令让你根据数据库的表来生成结构体或者类代码文件
 
 首先要进入到当前项目的目录下，主要是后面的命令最后一个参数中用到的模版存放在当前项目的目录下
 
-`cd $GOPATH/src/github.com/go-xorm/cmd/xorm`
+`cd $GOPATH/src/github.com/bobac-small/cmd/xorm`
 
 sqlite:
 `xorm reverse sqite3 test.db templates/goxorm`
@@ -69,12 +69,13 @@ postgres:
 
 ```
 lang=go
-genJson=1
+genJson=1 
 genFrom=1
 ```
 
 `lang` 目前支持 go， c++ 和 objc。
 `genJson` 可以为0或者1，如果是1则结构会包含json的tag，此项配置目前仅支持Go语言。
+`genFrom` 可以为0或者1，如果是1则结构会包含from的tag，此项配置目前仅支持Go语言。
 
 ## Shell
 
@@ -101,3 +102,17 @@ List all supported drivers since default build will not include sqlite3.
 
  BSD License
  [http://creativecommons.org/licenses/BSD/](http://creativecommons.org/licenses/BSD/)
+样例：
+
+type xx struct {
+ 	Id          int64  `json:"Id" from:"Id" xorm:"pk autoincr comment('编号') BIGINT(20)"`
+ 	Name        string `json:"Name" from:"Name" xorm:"VARCHAR(255)"`
+ 	Key         string `json:"Key" from:"Key" xorm:"VARCHAR(255)"`
+ 	MerhantNo   int    `json:"MerhantNo" from:"MerhantNo" xorm:"INT(255)"`
+ 	Password    string `json:"Password" from:"Password" xorm:"VARCHAR(255)"`
+ 	CallBackUrl string `json:"CallBackUrl" from:"CallBackUrl" xorm:"VARCHAR(255)"`
+ 	RequestUrl  string `json:"RequestUrl" from:"RequestUrl" xorm:"VARCHAR(255)"`
+}
+为大家省去编译tag json 和from的时间
+ 
+源码来自这个https://github.com/go-xorm/
