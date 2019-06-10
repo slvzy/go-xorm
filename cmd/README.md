@@ -1,5 +1,5 @@
 
-[中文](https://github.com/bobac-small/cmd/blob/master/README_CN.md)
+[中文](https://github.com/bobac-small/go-xorm/blob/master/cmd/README_CN.md)
 
 # xorm tools
 
@@ -7,7 +7,7 @@ xorm tools is a set of  tools for database operation.
 
 ## Source Install
 
-`go get github.com/bobac-small/cmd/xorm`
+`go get github.com/bobac-small/go-xorm/cmd/xorm`
 
 and you should install the depends below:
 
@@ -103,3 +103,18 @@ List all supported drivers since default build will not include sqlite3.
 
  BSD License
  [http://creativecommons.org/licenses/BSD/](http://creativecommons.org/licenses/BSD/)
+
+example:
+
+    type xx struct {
+        Id          int64  `json:"Id" from:"Id" xorm:"pk autoincr comment('编号') BIGINT(20)"`
+        Name        string `json:"Name" from:"Name" xorm:"VARCHAR(255)"`
+        Key         string `json:"Key" from:"Key" xorm:"VARCHAR(255)"`
+        MerhantNo   int    `json:"MerhantNo" from:"MerhantNo" xorm:"INT(255)"`
+        Password    string `json:"Password" from:"Password" xorm:"VARCHAR(255)"`
+        CallBackUrl string `json:"CallBackUrl" from:"CallBackUrl" xorm:"VARCHAR(255)"`
+        RequestUrl  string `json:"RequestUrl" from:"RequestUrl" xorm:"VARCHAR(255)"`
+    }
+
+
+tanks from to https://github.com/go-xorm/
