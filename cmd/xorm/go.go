@@ -301,7 +301,7 @@ func tag(table *core.Table, col *core.Column) string {
 		if include(ignoreColumnsJSON, col.Name) {
 			tags = append(tags, "json:\"-\"")
 		} else {
-			tags = append(tags, "json:\""+mapper.Table2Obj(col.Name)+"\"")
+			tags = append(tags, "json:\""+fieldCasedName(col.Name)+"\"")
 		}
 	}
 	// add from
@@ -309,7 +309,7 @@ func tag(table *core.Table, col *core.Column) string {
 		if include(ignoreColumnsJSON, col.Name) {
 			tags = append(tags, "from:\"-\"")
 		} else {
-			tags = append(tags, "from:\""+mapper.Table2Obj(col.Name)+"\"")
+			tags = append(tags, "from:\""+fieldCasedName(col.Name)+"\"")
 		}
 	}
 	if len(res) > 0 {
@@ -329,4 +329,29 @@ func include(source []string, target string) bool {
 		}
 	}
 	return false
+}
+
+// 使用驼峰法命名规则
+func fieldCasedName(name string) string {
+	newstr := make([]rune, 0)
+	upNextChar := false
+
+	name = strings.ToLower(name)
+
+	for _, chr := range name {
+		switch {
+		case upNextChar:
+			upNextChar = false
+			if 'a' <= chr && chr <= 'z' {
+				chr -= ('a' - 'A')
+			}
+		case chr == '_':
+			upNextChar = true
+			continue
+		}
+
+		newstr = append(newstr, chr)
+	}
+
+	return string(newstr)
 }
